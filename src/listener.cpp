@@ -40,8 +40,6 @@ int main(int argc, char **argv) {
    * NodeHandle maintains the communication of node with ROS
    */
   ros::NodeHandle n;
-
- 
   ros::Subscriber sub = n.subscribe("chatter", 1000, chatterCallback);
   ros::spin();
 
