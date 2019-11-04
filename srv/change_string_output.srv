@@ -1,0 +1,8 @@
+#request
+string originaltext
+
+---
+#response
+string newtext
+
+
