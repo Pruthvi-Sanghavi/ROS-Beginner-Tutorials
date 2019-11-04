@@ -7,11 +7,11 @@ This tutorial familiarizes with the ros graph and its elements such as rosnode, 
 The project beginner_tutorials is about creating publisher and subscriber nodes and transferring messages between them.
 
 ## Dependencies
-```
+
  Ubuntu 16.04 Xenial ([link](http://releases.ubuntu.com/16.04/))
  ROS kinetic ([link](http://wiki.ros.org/kinetic))
  Catkin ([link](http://wiki.ros.org/catkin))  
-```
+
 
 ## Install ROS
 
