@@ -1,0 +1,13 @@
+pruthvi@pruthvi:~/cpplint$ ./cpplint.py extensions=cpp ~/beginner_tutorials/src/talker.cpp 
+Skipping input 'extensions=cpp': Can't open for reading
+/home/pruthvi/beginner_tutorials/src/talker.cpp:38:  Is this a non-const reference? If so, make const or use a pointer: beginner_tutorials::change_string_output::Request &req  [runtime/references] [2]
+/home/pruthvi/beginner_tutorials/src/talker.cpp:39:  Is this a non-const reference? If so, make const or use a pointer: beginner_tutorials::change_string_output::Response &res  [runtime/references] [2]
+Done processing /home/pruthvi/beginner_tutorials/src/talker.cpp
+Total errors found: 2
+
+
+
+pruthvi@pruthvi:~/cpplint$ ./cpplint.py extensions=cpp ~/beginner_tutorials/src/listener.cpp 
+Skipping input 'extensions=cpp': Can't open for reading
+Done processing /home/pruthvi/beginner_tutorials/src/listener.cpp
+
