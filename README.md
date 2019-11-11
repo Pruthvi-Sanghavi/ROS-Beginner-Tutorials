@@ -157,6 +157,7 @@ $ catkin_make run_tests beginner_tutorials
 
 ## Playing and Recording Bag files
 Bag files are used to record data and play data as and when required.
+To enable or disable the rosbag record and play option enter the launch directory and then launch file and set the default argument to true or false respectively.
 ### Recording bag files
 After launching the nodes
 
