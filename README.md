@@ -85,7 +85,7 @@ Press Ctrl+C.
 Open a terminal
 $ cd catkin_ws
 $ source devel/setup.bash
-$ roslaunch beginner_tutorials hw10.launch
+$ roslaunch beginner_tutorials hw11.launch
 
 Open a Terminal
 $ cd catkin_ws
@@ -108,9 +108,106 @@ In another terminal
 $ rqt_logger_level
 ```
 
+## tf Frame verification
+
+### Using rqt_tf_tree
+```
+Open a terminal
+$ cd catkin_ws
+$ source devel/setup.bash
+$ roslaunch beginner_tutorials hw11.launch
+
+Open another terminal
+$ cd catkin_ws
+$ source devel/setup.bash
+$ rosrun rqt_tf_tree rqt_tf_tree
+```
+
+### Using tf_echo
+```
+Open a terminal
+
+$ cd catkin_ws
+$ source devel/setup.bash
+$ rosrun tf tf_echo world talker
+```
+
+### Using view_frames
+```
+Open a terminal
+$ cd catkin_ws
+$ rosrun tf view_frames
+```
+
+## ROS Unit tests
+Open a terminal
+### Testing using Launch
+```
+$ cd catkin_ws
+$ source devel/setup.bash
+$ rostest beginner_tutorials unitTest.launch
+
+```
+### Testing using catkin_make
+```
+$ cd ~/catkin_ws
+$ source devel/setup.bash
+$ catkin_make run_tests beginner_tutorials
+```
+
+## Playing and Recording Bag files
+### Recording bag files
+After launching the nodes
+
+Open terminal 1
+```
+$ rosscore
+```
+
+Open terminal 2
+```
+$ cd catkin_ws
+$ source devel/setup.bash
+$ rosrun beginner_tutorials talker
+```
+Open terminal 3
+```
+$ cd catkin_ws
+$ source devel/setup.bash
+$ cd src/beginner_tutorials/Results
+$ rosbag record -a
+ctrl + c after 15 seconds to terminate
+```
+
+### Examining Bag files
+In the same terminal used in recording bag file, type the following to examine the bag file.
+
+```
+$ rosbag info record.bag
+```
+
+### Playing the bag file
+
+First we will run the listener node.
+
+Open terminal 1
+```
+$ cd catkin_ws
+$ source devel/setup.bash
+$ rosrun beginner_tutorials listener
+```
+Now will play the recorded talker bag file
+Open terminal 2
+```
+$ cd catkin_ws
+$ source devel/setup.bash
+$ cd src/beginner_tutorials/Results
+$ rosbag play record.bag
+```
+
 ## Google Styling
 
-Google Styling can be seen as follows
+Google Styling Results are given
 ```
 cpplint and cppcheck
 $ roscd beginner_tutorials
