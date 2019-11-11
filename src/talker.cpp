@@ -25,9 +25,11 @@
 #include <ros/ros.h>
 #include <std_msgs/String.h>
 #include <sstream>
+#include <tf/transform_broadcaster.h>
 #include "beginner_tutorials/change_string_output.h"
 
-extern std::string text = " Hallo, Ich bin Pruthvi!!! ";
+std::string text = " Hallo, Ich bin Pruthvi!!! ";
+extern std::string text;
 
 /**
  * @brief a function that changes the stream message
@@ -101,12 +103,29 @@ int main(int argc, char **argv) {
     ss << text;
     msg.data = ss.str();
 
-    ROS_INFO("%s", msg.data.c_str());
+    ROS_INFO_STREAM(msg.data.c_str());
 
     /**
      * The publish() function represents the way of sending messages.
      */
     chatter_pub.publish(msg);
+
+    // set translation
+    static tf::TransformBroadcaster br;
+    tf::Transform transform;
+    transform.setOrigin(
+        tf::Vector3(cos(ros::Time::now().toSec()),
+                    sin(ros::Time::now().toSec()), 0.0));
+    tf::Quaternion q;
+    q.setRPY(0, 0, 1);
+
+    // set rotation
+    transform.setRotation(q);
+
+    // broadcast the transform
+    br.sendTransform(
+        tf::StampedTransform(transform, ros::Time::now(), "world", "talk"));
+
 
     ros::spinOnce();
 
