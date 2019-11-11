@@ -128,7 +128,7 @@ Open a terminal
 
 $ cd catkin_ws
 $ source devel/setup.bash
-$ rosrun tf tf_echo world talker
+$ rosrun tf tf_echo world talk
 ```
 
 ### Using view_frames
