@@ -2,9 +2,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Overview
-ROS is an opensource robotics operating system developed and maintained by Open Source Robotics Foundation 
-This tutorial familiarizes with the ros graph and its elements such as rosnode, rostopic, ros messages, ros master, ros services.
-The project beginner_tutorials is about creating publisher and subscriber nodes and transferring messages between them.
+This tutorial deals with tf and unit testing in ROS
 
 ## Dependencies
 
@@ -30,6 +28,7 @@ $ sudo apt install python-rosinstall python-rosinstall-generator python-wstool b
 ```
 
 ## Building Workspace and Packages
+Use the following commands on the terminal to build the workspace and the package with the relevant dependencies.
 
 ```
 Open a terminal
@@ -68,19 +67,19 @@ $ rosrun beginner_tutorials listener
 ```
 
 ## Using Launch
-
+The roslaunch command starts the nodes. Along with that it also begins the ros master.
 ```
 Open a terminal
 $ cd catkin_ws
 $ source devel/setup.bash
-$ roslaunch beginner_tutorials hw10.launch
+$ roslaunch beginner_tutorials hw11.launch
 
 To terminate
 Press Ctrl+C.
 ```
 
 ## ROS Service
-
+To change the string output replace "Changed String" to something.
 ```
 Open a terminal
 $ cd catkin_ws
@@ -99,7 +98,7 @@ $ rosservice call /change_string_output "Changed String"
 Open a Terminal
 $ cd catkin_ws
 $ source devel/setup.bash
-$ roslaunch beginner_tutorials hw10.launch
+$ roslaunch beginner_tutorials hw11.launch
 
 In another terminal
 $ rqt_console
@@ -140,6 +139,7 @@ $ rosrun tf view_frames
 ```
 
 ## ROS Unit tests
+Run the unit testing in the new terminal.
 Open a terminal
 ### Testing using Launch
 ```
@@ -156,6 +156,7 @@ $ catkin_make run_tests beginner_tutorials
 ```
 
 ## Playing and Recording Bag files
+Bag files are used to record data and play data as and when required.
 ### Recording bag files
 After launching the nodes
 
@@ -176,6 +177,7 @@ $ cd catkin_ws
 $ source devel/setup.bash
 $ cd src/beginner_tutorials/Results
 $ rosbag record -a
+
 ctrl + c after 15 seconds to terminate
 ```
 
