@@ -2,7 +2,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Overview
-This tutorial deals with tf and unit testing in ROS
+This tutorial deals with tf, rosbag and unit testing in ROS
 
 ## Dependencies
 
