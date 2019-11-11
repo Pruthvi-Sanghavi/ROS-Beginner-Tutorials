@@ -10,6 +10,8 @@ find_package(catkin REQUIRED COMPONENTS
 	rospy
   std_msgs
 	message_generation
+  tf
+  
 )
 ## Generate messages in the 'msg' folder
   add_message_files(
@@ -49,5 +51,30 @@ add_dependencies(talker beginner_tutorials_generate_messages_cpp)
 add_executable(listener src/listener.cpp)
 target_link_libraries(listener ${catkin_LIBRARIES})
 add_dependencies(listener beginner_tutorials_generate_messages_cpp)
+
+## For testing purposes
+
+if(CATKIN_ENABLE_TESTING)
+  find_package(rostest REQUIRED)
+
+  add_rostest_gtest(
+  unitTest 
+  test/unitTest.launch 
+  test/main.cpp 
+  test/unitTest.cpp
+  )
+  target_link_libraries(
+  unitTest
+  ${catkin_LIBRARIES}
+  )
+  add_dependencies(
+  talker
+	unitTest
+  ${catkin_EXPORTED_TARGETS}
+  )
+endif()
+
+
+
 
 
